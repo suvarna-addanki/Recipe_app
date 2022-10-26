@@ -13,9 +13,9 @@ function App() {
       <Navbar/>
 
       <Routes>
-        <Route exact path="/" component={HomePage}/>
-        <Route exact path="/categories" component={Categories}/>
-        <Route exact path="/random" component={RandomMeal}/>
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/categories" element={<Categories />}/>
+        <Route path="/random" element={<RandomMeal />}/>
       </Routes>
 
       <Footer />

@@ -8,12 +8,16 @@ import axios from "axios";
     const[categories, setCategories] = useState([])
     const[randomRecipe, setRandomRecipe] = useState([])
 
-    const fetchHomepageMeals = useCallback(() =>{
-        axios.get(`www.themealdb.com/api/json/v1/1/search.php?s`)
+    const fetchHomepageMeals = useCallback((searchTerm) =>{
+        axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`)
+        .then(res =>{
+            console.log(res.data.meals)
+            setRecipes(res.data.meals)
+        })
     },[])
 
     return (
-        <myContext.Provider>
+        <myContext.Provider value={{fetchHomepageMeals, recipes}}>
             {children}
         </myContext.Provider>
     )
